@@ -1,177 +1,104 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
+{% block body %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v4.0.1">
-  <title>Pricing example · Bootstrap</title>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h2 class="display-5">search. {{actress}}</h2>
+  <div class="lead">
+
+    {% for domain in domaincount %}
 
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <a class="btn btn-outline-secondary" href="/{{actress}}/{{domain[0]}}" role="button">{{domain[0]}}&nbsp;({{domain[1]}})</a>
 
-  <!-- Bootstrap core JS -->
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    {% endfor%}
 
 
-  <!--    bootstrap-select-->
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-  <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
-
-
-
-
-  <style>
-    html {
-      font-size: 14px;
-    }
-
-    @media (min-width: 768px) {
-      html {
-        font-size: 16px;
-      }
-    }
-
-    .container {
-      max-width: 1500px;
-    }
-
-    .pricing-header {
-      max-width: 700px;
-    }
-
-    body {
-      background-color: #EEEEEE;
-    }
-
-    .container {
-      background-color: white;
-    }
-  </style>
-
-</head>
-
-<body>
-  <div class="container">
-
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </div>
-
-
-
-
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h2 class="display-5">search. 唯井まひろ</h2>
-      <div class="lead">
-
-        <a href="#" class="badge badge-warning">PornHub<small>1080件</small></a>
-        <a href="#" class="badge badge-primary">EXTREMETUBE<small>1080件</small></a>
-        <a href="#" class="badge badge-dark">Tube8<small>1080件</small></a>
-
-        <a href="#" class="badge badge-success">JavyNow<small>1080件</small></a> <br>
-        <a href="#" class="badge badge-secondary">YOUPORN<small>1080件</small></a>
-        <a href="#" class="badge badge-danger">RedTube<small>1080件</small></a>
-        <a href="#" class="badge badge-info">SpankBang<small>1080件</small></a>
-
-      </div>
-    </div>
-
-
-    <div class="row row-cols-1 row-cols-md-2">
-
-       {% for link in links%}
-
-      <div class="col mb-4">
-        <div class="card">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="{{link[2]}}" allowfullscreen></iframe>
-          </div>
-          <div class="card-body">
-
-            <select class="selectpicker" data-live-search="true" data-width="100%" data-size="10">
-
-              {% for product in products %}
-
-            <option value="{{product[0]}}" data-tokens="{{product[1]}}">{{product[1]}}</option>
-
-              {% endfor %}
-
-            </select>
-
-            <br>
-
-
-            <small><a href="{{link[1]}}">{{link[1]}}</a></small>
-
-          </div>
-
-        </div>
-      </div>
-
-      {% endfor %}
-
-
-    </div>
-
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-      <div class="row">
-        <div class="col-12 col-md">
-          <img class="mb-2" src="../assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-          <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Features</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Cool stuff</a></li>
-            <li><a class="text-muted" href="#">Random feature</a></li>
-            <li><a class="text-muted" href="#">Team feature</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Another one</a></li>
-            <li><a class="text-muted" href="#">Last time</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-            <li><a class="text-muted" href="#">Another resource</a></li>
-            <li><a class="text-muted" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Team</a></li>
-            <li><a class="text-muted" href="#">Locations</a></li>
-            <li><a class="text-muted" href="#">Privacy</a></li>
-            <li><a class="text-muted" href="#">Terms</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
   </div>
-</body>
+</div>
 
-</html>
+{{ pagination.info }}
+{{ pagination.links }}
+
+<div class="notice">
+  <small>※表示されない動画は、投稿者がプライベート公開にしている可能性がありますのでリンク先へ移動お願いします。</small>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-2">
+
+  {% for link in links%}
+
+  <div class="col mb-4">
+    <div class="card shadow">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="{{link[2]}}" allowfullscreen></iframe>
+      </div>
+      <div class="card-body">
+
+        視聴回数：{{link[4]}}
+
+        <br>
+        <small><a href="{{link[1]}}">{{link[1]}}</a></small>
+
+        <br>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal{{link[0]}}">
+          作品名を入力
+        </button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{link[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <table data-toggle="table" data-search="true" data-show-columns="true">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>作品名</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {%for product in products %}
+
+                    <tr id="tr-id-{{loop.index}}" class="tr-class-{{loop.index}}" data-title="bootstrap table" data-object='{"key": "value"}'>
+                      <td>{{loop.index}}</td>
+                      <td data-value="{{product[1]}}">{{product[1]}}</td>
+                    </tr>
+
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  {% endfor %}
+
+
+</div>
+
+{{ pagination.links }}
+
+
+{% endblock %}

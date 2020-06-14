@@ -1,130 +1,69 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
+{% block body %}
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+  <h3 class="display-4">違法アップロード管理サイト</h3>
+  <p class="lead">
+    独自のアルゴリズムによって違法アップロード先のリンクを検出します。当サイト内では検出・特定の作業を円滑に進めるお手伝いをします。
+  </p>
+</header>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v4.0.1">
-  <title>Pricing example · Bootstrap</title>
+<!-- Page Features -->
+<div class="row text-center">
 
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <!-- Bootstrap core JS -->
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-
-
-  <style>
-    html {
-      font-size: 14px;
-    }
-
-    @media (min-width: 768px) {
-      html {
-        font-size: 16px;
-      }
-    }
-
-    .container {
-      max-width: 1500px;
-    }
-
-    .pricing-header {
-      max-width: 700px;
-    }
-
-    body {
-      background-color: #EEEEEE;
-    }
-
-    .container {
-      background-color: white;
-    }
-  </style>
-
-</head>
-
-<body>
-  <div class="container">
-
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">女優名</a>
-
-
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">リスト</a>
-      </nav>
-
-
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </div>
-
-
-
-
-
-    <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>
-          海賊版対策クラウドツール
-        </h1>
-        <hr>
-        <div>
-          <p>独自のアルゴリズムによって世界中で違法にアップロードされた動画を検出します。</p>
-        </div>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
       </div>
-
-      <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h4>女優名で検索</h4>
-            <hr>
-            <p>
-              独自のアルゴリズムによって検出し、カテゴリー分けされて、作業の分担が簡単。
-            </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h4>作品名を簡単入力</h4>
-            <hr>
-            <p>
-              リストが出てきてタップするだけで完了です。
-            </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h4>削除申請後の管理が楽</h4>
-            <hr>
-            <p>削除申請後にはBotが定期的に違法サイトを巡回するので削除申請が通っているのかを一目で確認可能。</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-        <br>
-        <hr>
-
-      </div> <!-- /container -->
-
-    </main>
-
-
-    <br><br><br>
-    <footer>
-      <h6>©ohirune.timer</h6>
-    </footer>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Find Out More!</a>
+      </div>
+    </div>
   </div>
-</body>
 
-</html>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Find Out More!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Find Out More!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card h-100">
+      <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn btn-primary">Find Out More!</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.row -->
+
+{% endblock %}
