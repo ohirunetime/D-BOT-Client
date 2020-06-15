@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block body %}
+
+<h5>DMCA</h5>
+
+<div align ="right">
+  <small>※カラム表示設定</small>
+</div>
+<table
+  data-toggle="table"
+  data-search="true"
+  data-show-columns="true"
+  style="font-size : small"
+  >
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Actress</th>
+      <th>Domain</th>
+      <th>CopyLink</th>
+      <th>Title</th>
+      <th>OriginalLink</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{%for dmca in dmca_list %}
+
+<tr id="tr-id-{{loop.index}}" class="tr-class-{{loop.index}}" data-title="bootstrap table" data-object='{"key": "value"}'>
+  <td id="td-id-{{loop.index}}" class="td-class-{{loop.index}}" data-title="bootstrap table">
+    {% if dmca[0] == 'alive' %}
+    〇
+    {%else%}
+    ✖
+    {%endif%}  </td>
+  <td data-value="{{dmca[1]}}">{{dmca[1]}}</td>
+  <td data-text="{{dmca[2]}}">{{dmca[2]}}</td>
+  <td data-i18n="Description">{{dmca[3]}}</td>
+  <td data-text="{{dmca[4]}}">{{dmca[4]}}</td>
+  <td data-i18n="Description">{{dmca[5]}}</td>
+
+</tr>
+
+{%endfor%}
+
+  </tbody>
+</table>
+<br>
+<div>
+  <small>
+  Statusは削除されているか否かを表示します。 <br>
+  ✖削除済み
+  </small>
+</div>
+{% endblock %}
