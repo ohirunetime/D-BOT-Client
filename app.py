@@ -2,13 +2,19 @@ from flask import Flask, render_template, request, redirect
 import psycopg2
 from flask_paginate import Pagination, get_page_parameter
 import configparser
-
+import os
 
 def setting():
+
+    # テスト
     config = configparser.ConfigParser()
     config.read('database.ini')
     section = 'databaseconfig'
     databaseURI = config.get(section, 'databaseURI')
+
+    # Heroku
+    databaseURI = os.environ["DATABASE_URL"]
+
     return psycopg2.connect(databaseURI)
 
 
