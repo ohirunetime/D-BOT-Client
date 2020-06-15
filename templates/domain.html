@@ -35,6 +35,8 @@
       </div>
       <div class="card-body">
 
+        id : {{link[0]}}
+
         視聴回数：{{link[4]}}
 
         <br>
@@ -72,7 +74,7 @@
                     {%for product in products %}
 
                     <tr id="tr-id-{{loop.index}}" class="tr-class-{{loop.index}}" data-title="bootstrap table" data-object='{"key": "value"}'>
-                      <td>{{loop.index}}</td>
+                      <td><input type="checkbox"></td>
                       <td data-value="{{product[1]}}">{{product[1]}}</td>
                     </tr>
 

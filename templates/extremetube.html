@@ -38,10 +38,12 @@
 
         <small><a href="{{link[1]}}">{{link[1]}}</a></small>
 
+        <br>
+
 
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal{{link[0]}}">
+        <button type="button" class="btn btn-outline-dark" id = "Button-{{link[0]}}"  data-toggle="modal" data-target="#exampleModal{{link[0]}}">
           作品名を入力
         </button>
 
@@ -56,32 +58,41 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+
+              <form action="/dmca" method="post">
+
               <div class="modal-body">
 
-                <table data-toggle="table" data-search="true" data-show-columns="true">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>作品名</th>
-                    </tr>
-                  </thead>
+                  <table data-toggle="table" data-search="true" data-show-columns="true">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>作品名</th>
+                      </tr>
+                    </thead>
 
-                  <tbody>
-                    {%for product in products %}
+                    <tbody>
+                      {%for product in products %}
 
-                    <tr id="tr-id-{{loop.index}}" class="tr-class-{{loop.index}}" data-title="bootstrap table" data-object='{"key": "value"}'>
-                      <td>{{loop.index}}</td>
-                      <td data-value="{{product[1]}}">{{product[1]}}</td>
-                    </tr>
+                      <tr id="tr-id-{{loop.index}}" class="tr-class-{{loop.index}}" data-title="bootstrap table" data-object='{"key": "value"}'>
+                        <td><input type="checkbox"></td>
+                        <td data-value="{{product[1]}}">{{product[1]}}</td>
+                      </tr>
 
-                    {% endfor %}
-                  </tbody>
-                </table>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary" >Save changes</button>
               </div>
+
+            </form>
+
+
             </div>
           </div>
         </div>

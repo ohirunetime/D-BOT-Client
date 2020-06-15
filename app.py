@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import psycopg2
 from flask_paginate import Pagination, get_page_parameter
 import configparser
@@ -19,9 +19,50 @@ app = Flask(__name__)
 def main():
     return render_template('index.html')
 
-@app.route('/2')
-def mai2():
-    return render_template('index2.html')
+
+@app.route('/actress')
+def actress():
+    conn = setting()
+
+    try:
+        cur = conn.cursor()
+
+        sql = 'select actress,count(*) from copy_content group by actress'
+
+        cur.execute(sql)
+        actress_list = cur.fetchall()
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return render_template('actress.html', actress_list=actress_list)
+
+    except Exception as e :
+        print(e)
+        return 'ERROR'
+
+
+@app.route('/dmca')
+def dmca():
+    conn = setting()
+
+    try:
+        cur = conn.cursor()
+
+        sql = 'select copy_content.status,product.actress,domain,copy_content.link,product.title,product.link from dmca\
+        inner join copy_content on dmca.copy_link = copy_content.id\
+        inner join product on dmca.copyright = product.id'
+
+        cur.execute(sql)
+        dmca_list = cur.fetchall()
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        return render_template('dmca.html', dmca_list=dmca_list)
+
+    except:
+        return 'ERROR'
 
 
 @app.route('/<actress>/<domain>')
@@ -57,14 +98,19 @@ def copy_content(actress, domain):
             all_video), per_page=10, css_framework='bootstrap4')
 
         if domain == 'extremetube':
-            return render_template('extremetube.html', links=video_page, products=products, pagination=pagination, actress=actress,domaincount=domaincount)
+            return render_template('extremetube.html', links=video_page, products=products, pagination=pagination, actress=actress, domaincount=domaincount)
 
         else:
 
-            return render_template('domain.html', links=video_page, products=products, pagination=pagination, actress=actress,domaincount=domaincount)
+            return render_template('domain.html', links=video_page, products=products, pagination=pagination, actress=actress, domaincount=domaincount)
 
     except:
         return 'ERROR'
+
+# @app.route('/dmca',methods = ['POST'])
+# def dmca() :
+#     if request.method == 'POST' :
+#         return ('', 204)
 
 
 if __name__ == '__main__':
