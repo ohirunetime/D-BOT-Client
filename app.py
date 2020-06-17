@@ -7,13 +7,13 @@ import os
 def setting():
 
     # テスト
-    # config = configparser.ConfigParser()
-    # config.read('database.ini')
-    # section = 'databaseconfig'
-    # databaseURI = config.get(section, 'databaseURI')
+    config = configparser.ConfigParser()
+    config.read('database.ini')
+    section = 'databaseconfig'
+    databaseURI = config.get(section, 'databaseURI')
 
     # Heroku
-    databaseURI = os.environ["DATABASE_URL"]
+    # databaseURI = os.environ["DATABASE_URL"]
 
     return psycopg2.connect(databaseURI)
 
@@ -24,6 +24,10 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     return render_template('index.html')
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 
 
 @app.route('/actress')
