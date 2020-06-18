@@ -38,7 +38,7 @@ def actress():
     try:
         cur = conn.cursor()
 
-        sql = ''' select actress,count(*) from copy_content group by actress where status = 'alive' '''
+        sql = ''' select actress,count(*) from copy_content where status = 'alive' group by actress '''
 
         cur.execute(sql)
         actress_list = cur.fetchall()
