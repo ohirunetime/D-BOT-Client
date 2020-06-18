@@ -24,7 +24,7 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     return render_template('index.html')
-    
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
@@ -38,7 +38,7 @@ def actress():
     try:
         cur = conn.cursor()
 
-        sql = 'select actress,count(*) from copy_content group by actress'
+        sql = ''' select actress,count(*) from copy_content group by actress where status = 'alive' '''
 
         cur.execute(sql)
         actress_list = cur.fetchall()
